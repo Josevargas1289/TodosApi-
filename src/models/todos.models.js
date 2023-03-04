@@ -33,7 +33,8 @@ const Todos = db.define('todo',{
         field: 'categorie_id'
     },
 
-
-
+},
+{
+    timestamps: false,
 })
 module.exports = Todos;

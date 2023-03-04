@@ -3,6 +3,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
+const userRoutes = require("./routes/users.routes")
+const todoRoutes = require("./routes/todos.routes")
 
 initModels();
 
@@ -24,6 +26,10 @@ db.authenticate()
 db.sync({alter: true})
 .then(()=>console.log(('base de datos sync')))
 .catch((error)=> console.log(error));
+
+
+app.use(userRoutes);
+app.use(todoRoutes);
 
 app.get("/", (req, res)=>{
     res.send("Welcome to my api")

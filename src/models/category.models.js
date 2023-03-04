@@ -11,12 +11,12 @@ const Category = db.define("categories", {
     type: DataTypes.STRING(60),
     allowNull: false,
   },
-  postId:{
-    type: DataTypes.INTEGER,
-     allowNull: false,
-     field: "post_id"
-  },
   
-});
+},
+{
+  timestamps: false,
+}
+
+);
 
 module.exports = Category;
